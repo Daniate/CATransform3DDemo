@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#define kRandomFloatNumber ((arc4random()%255+1)/255.0f)
+#define kRandomFloatNumber (arc4random()%256/255.0f)
 #define kRandomColor [UIColor colorWithRed:kRandomFloatNumber green:kRandomFloatNumber blue:kRandomFloatNumber alpha:1.0f]
 #define kBorderWidth (25.0f)
 #define kOpacity (0.7f)
