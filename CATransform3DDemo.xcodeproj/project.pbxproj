@@ -17,7 +17,6 @@
 		1494D4A617601E4000801054 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1494D4A517601E4000801054 /* Default@2x.png */; };
 		1494D4A817601E4000801054 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1494D4A717601E4000801054 /* Default-568h@2x.png */; };
 		1494D4AB17601E4000801054 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1494D4AA17601E4000801054 /* ViewController.m */; };
-		1494D4AE17601E4000801054 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1494D4AC17601E4000801054 /* ViewController.xib */; };
 		1494D4B517601E6400801054 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1494D4B417601E6400801054 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +26,6 @@
 		1494D49317601E4000801054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1494D49517601E4000801054 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1494D49917601E4000801054 /* CATransform3DDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CATransform3DDemo-Info.plist"; sourceTree = "<group>"; };
-		1494D49B17601E4000801054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1494D49D17601E4000801054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1494D49F17601E4000801054 /* CATransform3DDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CATransform3DDemo-Prefix.pch"; sourceTree = "<group>"; };
 		1494D4A017601E4000801054 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,8 +35,8 @@
 		1494D4A717601E4000801054 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1494D4A917601E4000801054 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1494D4AA17601E4000801054 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1494D4AD17601E4000801054 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		1494D4B417601E6400801054 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		14CB617F1769974100715332 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +89,6 @@
 				1494D4A117601E4000801054 /* AppDelegate.m */,
 				1494D4A917601E4000801054 /* ViewController.h */,
 				1494D4AA17601E4000801054 /* ViewController.m */,
-				1494D4AC17601E4000801054 /* ViewController.xib */,
 				1494D49817601E4000801054 /* Supporting Files */,
 			);
 			path = CATransform3DDemo;
@@ -146,6 +143,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 1494D48517601E4000801054;
 			productRefGroup = 1494D48F17601E4000801054 /* Products */;
@@ -166,7 +164,6 @@
 				1494D4A417601E4000801054 /* Default.png in Resources */,
 				1494D4A617601E4000801054 /* Default@2x.png in Resources */,
 				1494D4A817601E4000801054 /* Default-568h@2x.png in Resources */,
-				1494D4AE17601E4000801054 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,17 +186,9 @@
 		1494D49A17601E4000801054 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1494D49B17601E4000801054 /* en */,
+				14CB617F1769974100715332 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1494D4AC17601E4000801054 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1494D4AD17601E4000801054 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -300,6 +289,7 @@
 				1494D4B317601E4000801054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
