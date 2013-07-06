@@ -15,7 +15,7 @@
 #define kDistance (300.0f)
 #define kCornerRadius (20.0f)
 
-typedef NS_ENUM(NSUInteger, kLayerIdentifier) {
+typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 	kLayerIdentifierFront = 0,
 	kLayerIdentifierBack,
 	kLayerIdentifierLeft,
@@ -51,7 +51,7 @@ typedef NS_ENUM(NSUInteger, kLayerIdentifier) {
 	CGRect rect = CGRectMake(0, 0, 2*kDistance/3, 2*kDistance/3);
 	CGPoint p = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
 	
-	for (kLayerIdentifier i = kLayerIdentifierFront; i < kLayerIdentifierCount; i++) {
+	for (NSUInteger i = kLayerIdentifierFront; i < kLayerIdentifierCount; i++) {
 		CALayer *sublayer = [CALayer layer];
 		sublayer.cornerRadius = kCornerRadius;
 		sublayer.borderWidth = kBorderWidth;
@@ -63,7 +63,7 @@ typedef NS_ENUM(NSUInteger, kLayerIdentifier) {
 		[self.layer addSublayer:sublayer];
 		
 		CATransform3D t3d = CATransform3DIdentity;
-		switch ((NSUInteger)i) {
+		switch (i) {
 			case kLayerIdentifierFront:
 			{
 				t3d = CATransform3DTranslate(t3d, 0, 0, kDistance/3);
