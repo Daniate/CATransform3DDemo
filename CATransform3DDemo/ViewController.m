@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 	kLayerIdentifierCount,
 };
 
+static NSString *texts[kLayerIdentifierCount] = {@"Front", @"Back", @"Left", @"Right"};
+
 @interface ViewController ()
 @property (nonatomic, retain) CATransformLayer *layer;
 @end
@@ -52,7 +54,12 @@ typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 	CGPoint p = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
 	
 	for (NSUInteger i = kLayerIdentifierFront; i < kLayerIdentifierCount; i++) {
-		CALayer *sublayer = [CALayer layer];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+		label.bounds = rect;
+		label.center = p;
+		label.textAlignment = NSTextAlignmentCenter;
+		label.text = texts[i];
+		CALayer *sublayer = label.layer;
 		sublayer.cornerRadius = kCornerRadius;
 		sublayer.borderWidth = kBorderWidth;
 		sublayer.borderColor = kRandomColor.CGColor;
@@ -72,6 +79,7 @@ typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 			case kLayerIdentifierBack:
 			{
 				t3d = CATransform3DTranslate(t3d, 0, 0, -kDistance/3);
+				t3d = CATransform3DRotate(t3d, M_PI, 0, -1, 0);
 				break;
 			}
 			case kLayerIdentifierLeft:
@@ -83,7 +91,7 @@ typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 			case kLayerIdentifierRight:
 			{
 				t3d = CATransform3DTranslate(t3d, kDistance/3, 0, 0);
-				t3d = CATransform3DRotate(t3d, M_PI_2, 0, -1, 0);
+				t3d = CATransform3DRotate(t3d, M_PI_2, 0, 1, 0);
 				break;
 			}
 		}
@@ -94,14 +102,14 @@ typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 	t3d.m34 = -1.0f/kDistance;
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-	animation.duration = 3.0f;
+	animation.duration = 5.0f;
 	animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
 	animation.toValue = [NSValue valueWithCATransform3D:t3d];
 	[self.layer addAnimation:animation forKey:@"transform"];
 	
 	self.layer.transform = t3d;
 	
-	double delayInSeconds = animation.duration + 2.0;
+	double delayInSeconds = animation.duration + 5.0;
 	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
 	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 		CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(rotate)];
@@ -126,6 +134,23 @@ typedef NS_ENUM(NSUInteger, LayerIdentifier) {
 #pragma mark - Action
 - (void)rotate {
 	self.layer.transform = CATransform3DRotate(self.layer.transform, 0.02f, 0, 1, 0);
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+}
+
+- (BOOL)shouldAutorotate {
+	return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+	return UIInterfaceOrientationMaskPortrait|UIInterfaceOrientationMaskPortraitUpsideDown;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+	return UIInterfaceOrientationPortrait;
 }
 
 @end
